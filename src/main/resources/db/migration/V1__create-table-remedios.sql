@@ -1,0 +1,9 @@
+CREATE TABLE remedios2 (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    via VARCHAR(255) NOT NULL,
+    lote VARCHAR(255) NOT NULL,
+    quantidade VARCHAR(255) NOT NULL,
+    validade VARCHAR(255) NOT NULL,
+    laboratorio VARCHAR(255) NOT NULL
+);
