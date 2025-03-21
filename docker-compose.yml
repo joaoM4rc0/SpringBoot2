@@ -1,0 +1,20 @@
+services:
+  db:
+    image: mysql:9.1.0
+    container_name: remedios_api
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: remedios_api
+    volumes:
+      - remedios_api:/var/lib/mysql
+      - /usr/share/zoneinfo:/usr/share/zoneinfo:ro
+    ports:
+      - "3310:3306"  # Corrected port mapping
+    networks:
+      - banco_default
+
+volumes:
+  remedios_api:
+
+networks:
+  banco_default:

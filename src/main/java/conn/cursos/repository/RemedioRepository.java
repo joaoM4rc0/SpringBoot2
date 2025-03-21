@@ -1,4 +1,7 @@
 package conn.cursos.repository;
 
-public class RemedioRepository {
+import conn.cursos.remedio.Remedio;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RemedioRepository extends JpaRepository<Remedio, Long>{
 }
