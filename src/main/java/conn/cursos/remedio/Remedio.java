@@ -1,9 +1,12 @@
 package conn.cursos.remedio;
 
+import conn.cursos.service.DadosSalvarRemedio;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity(name = "remedio")
 @Table(name = "remedios")
@@ -87,5 +90,14 @@ public class Remedio {
 
     public void setVia(Via via) {
         this.via = via;
+    }
+
+    public void atualizaDados(@Valid DadosSalvarRemedio dados) {
+        if(!Objects.isNull(dados.nome()) || !dados.nome().isEmpty()) {
+            this.nome = dados.nome();
+        }
+        if (!Objects.isNull(dados.via())) {
+            this.via = dados.via();
+        }
     }
 }

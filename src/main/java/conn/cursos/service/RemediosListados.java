@@ -4,8 +4,8 @@ import conn.cursos.remedio.Remedio;
 
 import java.time.LocalDate;
 
-public record RemediosListados(String nome, int quantidade, LocalDate validade) {
+public record RemediosListados(long id, String nome, int quantidade, String lote, LocalDate validade) {
     public RemediosListados(Remedio remedio) {
-        this(remedio.getNome(), remedio.getQuantidade(), remedio.getValidade());
+        this(remedio.getId(), remedio.getNome(), remedio.getQuantidade(), remedio.getLote(), remedio.getValidade());
     }
 }
