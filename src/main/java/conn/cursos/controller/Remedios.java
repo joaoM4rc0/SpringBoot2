@@ -3,7 +3,6 @@ package conn.cursos.controller;
 import conn.cursos.remedio.DadosCadastroRemedio;
 import conn.cursos.remedio.Remedio;
 import conn.cursos.repository.RemedioRepository;
-import conn.cursos.service.DadosAtualizarEstadoRemedio;
 import conn.cursos.service.DadosSalvarRemedio;
 import conn.cursos.service.RemediosListados;
 import jakarta.transaction.Transactional;
