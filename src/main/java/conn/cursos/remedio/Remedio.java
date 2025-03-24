@@ -14,6 +14,7 @@ import java.util.Objects;
 @EqualsAndHashCode(of = "id")
 public class Remedio {
     public Remedio(DadosCadastroRemedio dados) {
+        this.ativo = true;
         this.nome = dados.nome();
         this.laboratorio = dados.laboratorio();
         this.via = dados.via();
@@ -28,13 +29,26 @@ public class Remedio {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
+
     @Enumerated(EnumType.STRING)
     private Via via;
+
     private String lote;
     private int quantidade;
     private LocalDate validade;
+
     @Enumerated(EnumType.STRING)
     private Laboratorio laboratorio;
+    @Column(columnDefinition = "TINYINT(1)")
+    private boolean ativo;
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
 
     public long getId() {
         return id;
@@ -99,5 +113,9 @@ public class Remedio {
         if (!Objects.isNull(dados.via())) {
             this.via = dados.via();
         }
+    }
+
+    public void inativar() {
+        this.ativo = false;
     }
 }
