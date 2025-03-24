@@ -118,4 +118,7 @@ public class Remedio {
     public void inativar() {
         this.ativo = false;
     }
+    public void AtivarRemedio() {
+        if (!this.ativo) this.ativo = true;
+    }
 }

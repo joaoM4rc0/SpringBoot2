@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface RemedioRepository extends JpaRepository<Remedio, Long>{
     List<Remedio>findAllByAtivoTrue();
+
+    List<Remedio>findAllByAtivoFalse();
 }
