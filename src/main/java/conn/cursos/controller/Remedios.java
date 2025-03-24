@@ -31,7 +31,16 @@ public class Remedios {
     @PutMapping
     @Transactional
     public void atualizar(@RequestBody @Valid DadosSalvarRemedio dados) {
-        Remedio remedio = remedioRepository.getReferenceById(dados.id());
+        Remedio remedio = getReferenceById(dados.id());
         remedio.atualizaDados(dados);
+    }
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void deletar(@PathVariable long id) {
+        getReferenceById(id);
+        remedioRepository.deleteById(id);
+    }
+    private Remedio getReferenceById(long id) {
+        return remedioRepository.getReferenceById(id);
     }
 }
