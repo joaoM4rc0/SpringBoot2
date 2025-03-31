@@ -18,7 +18,7 @@ public class SecurityConfiguration {
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll() // Libera endpoints de autenticação
-                        .requestMatchers("/remedios").permitAll() // Libera especificamente seu endpoint
+                        .requestMatchers("/remedios").permitAll() // Libera especificamente meu endpoint
                         .anyRequest().authenticated() // Exige autenticação para outros endpoints
                 ).build();
     }
