@@ -1,4 +1,5 @@
 package conn.cursos.infra;
 
-public record DadosTokenJwt() {
+public record DadosTokenJwt(String tokenJwt) {
+
 }

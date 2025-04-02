@@ -1,5 +1,6 @@
 package conn.cursos.controller;
 
+import conn.cursos.infra.DadosTokenJwt;
 import conn.cursos.infra.TokenService;
 import conn.cursos.usuarios.Usuario;
 import conn.cursos.usuarios.ValidacaoDados;
@@ -30,7 +31,8 @@ public class AutenticacaoController {
         // Autentica o usuário (verifica se existe e se a senha está correta)
         var autenticacao = manager.authenticate(token);
 
+        var tokenJwt = tokenService.gerarToken((Usuario) autenticacao.getPrincipal());
         // Gera token JWT para o usuário autenticado e retorna
-        return ResponseEntity.ok(tokenService.gerarToken((Usuario) autenticacao.getPrincipal()));
+        return ResponseEntity.ok(new DadosTokenJwt(tokenJwt));
     }
 }
