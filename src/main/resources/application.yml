@@ -15,3 +15,7 @@ spring:
     validate-on-migrate: true
     clean-disabled: true  # BLOQUEIA o comando clean
     clean-on-validation-error: false  # Desativa limpeza automática
+  api:
+    security:
+      token:
+        secret: ${JWT_Secret:123456}
